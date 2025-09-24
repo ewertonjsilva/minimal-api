@@ -104,3 +104,8 @@ D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\zh-Ha
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\obj\Debug\net8.0\minimal-api.csproj.AssemblyReference.cache
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\obj\Debug\net8.0\minimal-api.sourcelink.json
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\obj\Debug\net8.0\minimal-.F3613C90.Up2Date
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\obj\Debug\net8.0\minimal-api.MvcApplicationPartsAssemblyInfo.cs
