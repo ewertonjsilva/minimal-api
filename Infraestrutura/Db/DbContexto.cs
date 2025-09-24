@@ -13,6 +13,7 @@ public class DbContexto : DbContext
     }
     // Aqui você pode definir as propriedades do seu DbContexto
     public DbSet<Administrador> Administradores { get; set; } = default!;
+    public DbSet<Veiculo> Veiculos { get; set; } = default!;
 
     // Inserir usuarios
     protected override void OnModelCreating(ModelBuilder modelBuilder)
