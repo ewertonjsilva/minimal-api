@@ -37,7 +37,7 @@ public class VeiculoServico : IVeiculoServico
         _contexto.SaveChanges();
     }
 
-    public List<Veiculo>? Todos(int pagina = 1, string? nome = null, string? marca = null)
+    public List<Veiculo>? Todos(int? pagina = 1, string? nome = null, string? marca = null)
     {
         var query = _contexto.Veiculos.AsQueryable();
         if (!string.IsNullOrEmpty(nome))
@@ -47,11 +47,20 @@ public class VeiculoServico : IVeiculoServico
 
         int itensPorPagina = 10;
 
-        return query
-            .OrderBy(v => v.Nome)
-            .Skip((pagina - 1) * itensPorPagina)
-            .Take(itensPorPagina)
-            .ToList();
+        if (pagina != null)
+        {
+            return query
+                .OrderBy(v => v.Nome)
+                .Skip(((int)pagina - 1) * itensPorPagina)
+                .Take(itensPorPagina)
+                .ToList();
+        }
+        else
+        {
+            return query
+                .OrderBy(v => v.Nome)
+                .ToList();
+        }
     }
 }
 
