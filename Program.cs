@@ -6,6 +6,7 @@ using MinimalApi.Dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Dominio.ModelViews;
 using MinimalApi.Dominio.Entidades;
+using MinimalApi.Dominio.Enuns;
 
 #region Builder
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,7 @@ app.MapGet("/", () => Results.Json(new Home(), statusCode: 200)).WithTags("Home"
 #endregion
 
 #region Administradores
+
 app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministradorServico administradorServico) =>
 {
     if (administradorServico.Login(loginDTO) != null)
@@ -43,6 +45,84 @@ app.MapPost("/administradores/login", ([FromBody] LoginDTO loginDTO, IAdministra
         return Results.Unauthorized();
     }
 }).WithTags("Administradores");
+
+app.MapGet("/administradores", ([FromQuery] int? pagina, IAdministradorServico administradorServico) =>
+{
+    var adms = new List<AdministradorModelView>();
+    var administradores = administradorServico.Todos(pagina);
+    foreach (var adm in administradores)
+    {
+        adms.Add(new AdministradorModelView
+        {
+            Id = adm.Id,
+            Email = adm.Email,
+            Perfil = adm.Perfil
+        });
+    }
+    return Results.Ok(adms);
+}).WithTags("Administradores");
+
+app.MapGet("/administradores/{id}", ([FromRoute] int id, IAdministradorServico administradorServico) =>
+{
+    var adms = new List<AdministradorModelView>();
+    var administrador = administradorServico.BuscarPorId(id);
+    if (administrador == null)
+    {
+        return Results.NotFound();
+    }   
+    adms.Add(new AdministradorModelView
+    {
+        Id = administrador.Id,
+        Email = administrador.Email,
+        Perfil = administrador.Perfil
+    });
+    return Results.Ok(adms);
+}).WithTags("Administradores");
+
+app.MapPost("/administradores", ([FromBody] AdministradorDTO administradorDTO, IAdministradorServico administradorServico) =>
+{
+    var validacao = new ErrosDeValidacao
+    {
+        Mensagens = new List<string>()
+    };
+
+    if (string.IsNullOrEmpty(administradorDTO.Email))
+    {
+        validacao.Mensagens.Add("O email do administrador não pode ser vazio.");
+    }
+    if (string.IsNullOrEmpty(administradorDTO.Senha) || administradorDTO.Senha.Length < 6)
+    {
+        validacao.Mensagens.Add("A senha do administrador deve conter ao menos 6 caracteres.");
+    }
+    if (administradorDTO.Perfil == null)
+    {
+        validacao.Mensagens.Add("O perfil do administrador não pode ser vazio.");
+    }
+
+    if (validacao.Mensagens.Count > 0)
+        return Results.BadRequest(validacao);
+    
+    var administrador = new Administrador
+    {
+        Email = administradorDTO.Email,
+        Senha = administradorDTO.Senha,
+        Perfil = administradorDTO.Perfil.ToString() ?? Perfil.editor.ToString()
+    };
+    administradorServico.Incluir(administrador);
+
+    var adms = new List<AdministradorModelView>
+    {
+        new AdministradorModelView
+        {
+            Id = administrador.Id,
+            Email = administrador.Email,
+            Perfil = administrador.Perfil
+        }
+    };
+
+    return Results.Created($"/administradores/{administrador.Id}", adms);
+}).WithTags("Administradores");
+
 #endregion
 
 #region Veiculos
