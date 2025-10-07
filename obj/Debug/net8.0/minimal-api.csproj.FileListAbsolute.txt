@@ -109,3 +109,11 @@ D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swash
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\obj\Debug\net8.0\minimal-api.MvcApplicationPartsAssemblyInfo.cs
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Ewerton\CURSOS\25 - Bootcamp .net\projetos\minimal-api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
